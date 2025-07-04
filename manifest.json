@@ -1,0 +1,27 @@
+{
+  "name": "Google docs default view mode",
+  "description": "Enabled viewing mode as default in Google docs",
+  "version": "1.0",
+  "manifest_version": 3,
+  "icons": {
+    "32": "icon-32.png"
+  },
+  "host_permissions": [
+    "https://docs.google.com/*"
+  ],
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://docs.google.com/document/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_end"
+    }
+  ]
+}
