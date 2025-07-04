@@ -44,15 +44,15 @@ async function processElement(selector, callback) {
 
 async function switchToViewMode() {
 
-  const switcherFound = await processElement("#docs-toolbar-mode-switcher", element => {
+  const clickedOnSwitcher = await processElement("#docs-toolbar-mode-switcher", element => {
     clickElement(element);
   });
 
-  if (!switcherFound) {
+  if (!clickedOnSwitcher) {
     return;
   }
 
-  const viewingModeFound = await processElement(".docs-toolbar-mode-switcher-viewing-menu-item", element => {
+  await processElement(".docs-toolbar-mode-switcher-viewing-menu-item", element => {
     clickElement(element);
   });
 }
